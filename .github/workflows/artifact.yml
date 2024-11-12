@@ -18,3 +18,14 @@ jobs:
       with:
         name: hello-artifact
         path: hello.txt
+
+  download:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download hello artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: hello-artifact
+    - name: Deploy artifact
+      run: |
+        cat ./artifacts/hello.txt
